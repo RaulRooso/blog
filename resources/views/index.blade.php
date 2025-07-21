@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <link href="/src/style.css" rel="stylesheet">
+
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
     <title>Document</title>
 </head>
-<body>
-    <h1>What happened?</h1>
-    <button class="btn">click me</button>
-
+<body class="p-10">
+    <h1 class="text-2xl font-bold mb-4">What happened?</h1>
+    <button class="btn btn-primary">Click me</button>
+    <div class="test p-4 text-white">If this div is red, CSS is working</div>
 </body>
 </html>
