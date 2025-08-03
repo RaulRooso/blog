@@ -24,6 +24,7 @@
     <ul class="menu menu-horizontal px-1 z-10">
       <li><a href="{{ route('about') }}">About</a></li>
       <li>
+        @auth
         <details>
           <summary>Admin</summary>
           <ul class="p-2">
@@ -32,10 +33,30 @@
           </ul>
         </details>
       </li>
+      @endauth
       <li><a>Item 3</a></li>
     </ul>
   </div>
-  <div class="navbar-end">
-    <a class="btn">Button</a>
+  <div class="navbar-end gap-2">
+    @auth
+      <ul class="menu menu-horizontal px-1 z-10">
+      <li>
+        <details>
+          <summary>{{ auth()->user()->name }}</summary>
+          <ul class="p-2">
+            <li>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button>Logout</button>
+                </form>
+            </li>
+          </ul>
+        </details>
+      </li>
+    </ul>
+    @else
+    <a href="{{route('register')}}" class="btn btn-outline btn-success">Register</a>
+    <a href="{{route('login')}}" class="btn btn-outline btn-primary">Login</a>
+    @endauth
   </div>
 </div>

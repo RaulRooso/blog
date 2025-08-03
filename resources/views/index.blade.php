@@ -1,5 +1,5 @@
 @extends('partials.layout')
-@section('title', 'Home Page')
+@section('title', 'Register')
 @section('content')
     <h1 class="text-4xl">Home</h1>
     <div class="text-center my-2">
@@ -15,7 +15,7 @@
                     <h2 class="card-title">{{ $post -> title }}</h2>
                     <p>{{ $post -> snippet }}</p>
                 <div class="card-actions justify-end">
-                    <button class="btn btn-primary">Read More</button>
+                    <button class="btn btn-outline btn-primary">Read More</button>
                 </div>
             </div>
         </div>
