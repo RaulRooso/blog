@@ -10,7 +10,7 @@ class PublicController extends Controller
     public function index()
     {
         //$posts = Post::simplePaginate();
-        $posts = Post::paginate();
+        $posts = Post::latest()->paginate();
         return view('index', compact('posts'));
     }
 

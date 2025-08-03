@@ -4,7 +4,7 @@
 <div class="card bg-base-300 shadow-sm w-1/2 mx-auto">
     <div class="card-body">
         <h1 class="card-title">{{ __('New Post') }}</h1>
-        <form action="{{ route('posts.store')}}" method="POST">
+        <form action="{{ route('posts.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <fieldset class="fieldset">
                 <legend class="fieldset-legend">{{ __('Title') }}</legend>
@@ -17,6 +17,13 @@
                 <legend class="fieldset-legend">{{ __('Content') }}</legend>
                 <textarea name="body" class="textarea h-48 w-full @error('body') border-error @enderror" placeholder="{{ __('Write your content here...')}}">{{ old('body')}}</textarea>
                 @error('body')
+                <p class="label text-error">{{ $message }}</p>
+                @enderror
+            </fieldset>
+            <fieldset class="fieldset">
+                <legend class="fieldset-legend">{{ __('Image') }}</legend>
+                <input name="image" type="file" class="file-input w-full @error('title') border-error @enderror" placeholder="Image"/>
+                @error('title')
                 <p class="label text-error">{{ $message }}</p>
                 @enderror
             </fieldset>
